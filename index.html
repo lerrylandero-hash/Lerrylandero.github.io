@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InNova - Seguridad Digital</title>
-    <!-- Incluyendo el framework Tailwind CSS para un diseño moderno y responsive -->
+    <title>InNova - Tu Guía Digital</title>
+    <!-- Incluyendo Tailwind CSS para el diseño -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Incluyendo Google Fonts para la fuente "Inter" -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,6 @@
             background-color: white;
             border-radius: 1.5rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease-in-out;
         }
         .btn {
             background-color: #2563eb;
@@ -53,116 +52,184 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .chat-bubble {
+            max-width: 80%;
+            padding: 12px;
+            border-radius: 1.25rem;
+            margin-bottom: 8px;
+        }
+        .chat-user {
+            background-color: #d1d5db;
+            color: #1f2937;
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+        }
+        .chat-ai {
+            background-color: #2563eb;
+            color: white;
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+        /* Estilos para el efecto de sombra en los botones del menú */
+        .menu-btn {
+            background-color: #4f46e5;
+            color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .menu-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body class="p-4 md:p-8 min-h-screen flex items-center justify-center">
 
-    <div class="container mx-auto max-w-2xl text-center">
-        <header class="mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">InNova: Test de Seguridad Digital</h1>
-            <p class="text-lg md:text-xl text-gray-600">
-                Responde las preguntas para evaluar tus conocimientos sobre cómo navegar de forma segura.
-            </p>
+    <div class="container mx-auto max-w-2xl">
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">InNova</h1>
+            <p class="text-lg md:text-xl text-gray-600">Tu guía interactiva de seguridad digital</p>
         </header>
 
+        <!-- Main content area -->
         <main class="card p-8">
-            <div id="welcomeScreen">
-                <p class="text-lg mb-6 text-gray-700">¡Hola! ¿Estás listo para poner a prueba tus habilidades de seguridad en Internet? Presiona "Comenzar" para iniciar el test. Te haré una serie de preguntas sobre temas importantes.</p>
-                <button id="startBtn" class="btn">Comenzar Test</button>
+
+            <!-- Welcome/Menu Screen -->
+            <div id="main-menu-screen" class="text-center">
+                <p class="text-lg mb-6 text-gray-700">Explora los diferentes módulos y aprende a navegar por el mundo digital de forma segura.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <button class="menu-btn p-6" data-target="ciberacoso">
+                        <span class="block text-2xl font-bold">Ciberacoso</span>
+                        <p class="text-sm mt-2 opacity-80">Aprende a identificarlo y a protegerte.</p>
+                    </button>
+                    <button class="menu-btn p-6" data-target="phishing">
+                        <span class="block text-2xl font-bold">Phishing</span>
+                        <p class="text-sm mt-2 opacity-80">Evita ser víctima de estafas en línea.</p>
+                    </button>
+                    <button class="menu-btn p-6" data-target="contenido-inapropiado">
+                        <span class="block text-2xl font-bold">Contenido Inapropiado</span>
+                        <p class="text-sm mt-2 opacity-80">Reconoce y evita material ofensivo o peligroso.</p>
+                    </button>
+                    <button class="menu-btn p-6" data-target="chat-ia">
+                        <span class="block text-2xl font-bold">Chat con la IA</span>
+                        <p class="text-sm mt-2 opacity-80">Pregúntale a nuestra IA sobre cualquier tema de seguridad.</p>
+                    </button>
+                </div>
             </div>
 
-            <div id="testScreen" class="hidden">
-                <div class="mb-6">
-                    <p id="questionText" class="text-xl font-semibold text-gray-800 mb-4"></p>
-                    <textarea id="userAnswer" class="w-full h-32 p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Escribe tu respuesta aquí..."></textarea>
+            <!-- Themed Content Screens -->
+            <div id="ciberacoso" class="hidden">
+                <h2 class="text-3xl font-bold mb-4">Ciberacoso</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    El ciberacoso es el uso de tecnologías digitales para acosar, intimidar, amenazar o humillar a otra persona. Esto puede incluir el envío de mensajes o correos electrónicos agresivos, la publicación de rumores en redes sociales, o la creación de perfiles falsos.
+                </p>
+                <ul class="list-disc list-inside mt-4 text-gray-700">
+                    <li>Bloquea al acosador.</li>
+                    <li>Guarda las pruebas (capturas de pantalla, mensajes).</li>
+                    <li>Habla con un adulto de confianza o un docente.</li>
+                </ul>
+                <button class="back-btn btn mt-8">Volver</button>
+            </div>
+
+            <div id="phishing" class="hidden">
+                <h2 class="text-3xl font-bold mb-4">Phishing</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    El phishing es una técnica de estafa digital que busca engañarte para que reveles información personal, como contraseñas o datos bancarios. Generalmente, se hace a través de correos electrónicos, mensajes de texto o sitios web que parecen ser legítimos.
+                </p>
+                <ul class="list-disc list-inside mt-4 text-gray-700">
+                    <li>Revisa la dirección de correo del remitente.</li>
+                    <li>Desconfía de enlaces o archivos adjuntos sospechosos.</li>
+                    <li>Nunca compartas información sensible.</li>
+                </ul>
+                <button class="back-btn btn mt-8">Volver</button>
+            </div>
+
+            <div id="contenido-inapropiado" class="hidden">
+                <h2 class="text-3xl font-bold mb-4">Contenido Inapropiado</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    El contenido inapropiado se refiere a cualquier material en línea que es ofensivo, dañino o no adecuado para todos los públicos. Esto puede incluir violencia, discriminación, lenguaje de odio o material sexual.
+                </p>
+                <ul class="list-disc list-inside mt-4 text-gray-700">
+                    <li>No lo compartas ni lo distribuyas.</li>
+                    <li>Bloquea al usuario que lo compartió.</li>
+                    <li>Repórtalo a la plataforma o a un adulto.</li>
+                </ul>
+                <button class="back-btn btn mt-8">Volver</button>
+            </div>
+
+            <!-- AI Chat Screen -->
+            <div id="chat-ia" class="hidden">
+                <h2 class="text-3xl font-bold mb-4">Chat con la IA</h2>
+                <div id="chat-container" class="bg-gray-100 p-4 rounded-xl h-96 overflow-y-auto flex flex-col mb-4">
+                    <div class="chat-bubble chat-ai">Hola, soy la IA de InNova. ¿En qué tema de seguridad digital puedo ayudarte hoy?</div>
                 </div>
-                <div class="flex justify-between">
-                    <button id="sendBtn" class="btn">Enviar Respuesta</button>
-                    <button id="nextBtn" class="btn hidden">Siguiente Pregunta</button>
+                <div class="flex items-center">
+                    <input type="text" id="chat-input" class="flex-grow p-3 rounded-l-xl border-t border-b border-l border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Escribe tu pregunta...">
+                    <button id="send-chat-btn" class="btn rounded-l-none">Enviar</button>
                 </div>
             </div>
 
-            <div id="resultScreen" class="hidden">
-                <h2 class="text-2xl font-bold mb-4 text-blue-700">Análisis de tu respuesta:</h2>
-                <div id="resultContent" class="text-left text-gray-700 leading-relaxed"></div>
-                <button id="restartBtn" class="btn mt-8">Volver a Empezar</button>
-            </div>
-            
-            <div id="loadingIndicator" class="hidden mt-8">
-                <div class="loading"></div>
-                <p class="text-center text-gray-500 mt-4">Analizando tu respuesta...</p>
-            </div>
         </main>
     </div>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Referencias a elementos del DOM
-            const welcomeScreen = document.getElementById('welcomeScreen');
-            const testScreen = document.getElementById('testScreen');
-            const resultScreen = document.getElementById('resultScreen');
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const startBtn = document.getElementById('startBtn');
-            const sendBtn = document.getElementById('sendBtn');
-            const restartBtn = document.getElementById('restartBtn');
-            const questionText = document.getElementById('questionText');
-            const userAnswer = document.getElementById('userAnswer');
-            const resultContent = document.getElementById('resultContent');
-
-        
-            const API_KEY = "AIzaSyBOy6ZIMToC6OewYmoDBnDIWqY3MPBHSjU";
+            const API_KEY = "AIzaSyBOy6ZIMToC6OewYmoDBnDIWqY3MPBHSjU"; 
             const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
             
-            let currentQuestionIndex = 0;
-            const questions = [
-                "¿Qué es el 'phishing' y cómo puedes identificar un correo electrónico sospechoso?",
-                "Si un amigo te envía un enlace para ganar un premio, ¿qué pasos de seguridad debes seguir antes de hacer clic?",
-                "¿Por qué es importante usar contraseñas fuertes y únicas para cada una de tus cuentas?",
-                "¿Qué es el ciberacoso y cómo deberías reaccionar si lo experimentas o lo presencias?",
-                "¿Cómo puedes saber si una noticia que ves en redes sociales es falsa?",
+            // Referencias a las pantallas
+            const mainMenuScreen = document.getElementById('main-menu-screen');
+            const ciberacosoScreen = document.getElementById('ciberacoso');
+            const phishingScreen = document.getElementById('phishing');
+            const contenidoInapropiadoScreen = document.getElementById('contenido-inapropiado');
+            const chatIaScreen = document.getElementById('chat-ia');
+            
+            // Referencias a los botones
+            const menuButtons = document.querySelectorAll('.menu-btn');
+            const backButtons = document.querySelectorAll('.back-btn');
+            const sendChatBtn = document.getElementById('send-chat-btn');
+            const chatInput = document.getElementById('chat-input');
+            const chatContainer = document.getElementById('chat-container');
+
+            // Historial del chat para el modelo de IA
+            let chatHistory = [
+                { role: "user", parts: [{ text: "Actúa como un tutor experto y amigable en ciberseguridad para estudiantes. No respondas preguntas fuera de este tema." }] },
+                { role: "model", parts: [{ text: "¡Hola! Estoy listo para responder tus preguntas sobre seguridad digital." }] }
             ];
 
-            const showMessage = (message, isError = false) => {
-                const messageBox = document.createElement('div');
-                messageBox.className = `fixed bottom-4 right-4 p-4 rounded-lg shadow-lg z-50 ${isError ? 'bg-red-500 text-white' : 'bg-gray-800 text-white'}`;
-                messageBox.textContent = message;
-                document.body.appendChild(messageBox);
-                setTimeout(() => { messageBox.remove(); }, 5000);
+            const showScreen = (screenId) => {
+                const screens = [mainMenuScreen, ciberacosoScreen, phishingScreen, contenidoInapropiadoScreen, chatIaScreen];
+                screens.forEach(screen => screen.classList.add('hidden'));
+                document.getElementById(screenId).classList.remove('hidden');
             };
 
-            const displayQuestion = () => {
-                if (currentQuestionIndex < questions.length) {
-                    questionText.textContent = questions[currentQuestionIndex];
-                    userAnswer.value = '';
-                    testScreen.classList.remove('hidden');
-                    welcomeScreen.classList.add('hidden');
-                    resultScreen.classList.add('hidden');
-                } else {
-                    showMessage("¡Has completado el test! ¡Excelente trabajo!", false);
-                    testScreen.classList.add('hidden');
-                    restartBtn.classList.remove('hidden');
-                    resultContent.innerHTML = "¡Has completado todas las preguntas! Presiona el botón para volver a empezar.";
-                    resultScreen.classList.remove('hidden');
-                }
+            const addMessageToChat = (message, sender) => {
+                const messageBubble = document.createElement('div');
+                messageBubble.textContent = message;
+                messageBubble.className = `chat-bubble ${sender === 'user' ? 'chat-user' : 'chat-ai'}`;
+                chatContainer.appendChild(messageBubble);
+                chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to bottom
             };
 
-            const analyzeAnswer = async () => {
-                const userResponse = userAnswer.value.trim();
-                if (userResponse === "") {
-                    showMessage("Por favor, escribe tu respuesta para continuar.", true);
-                    return;
-                }
+            const sendUserMessage = async () => {
+                const userMessage = chatInput.value.trim();
+                if (userMessage === "") return;
 
-                loadingIndicator.classList.remove('hidden');
-                sendBtn.disabled = true;
+                addMessageToChat(userMessage, 'user');
+                chatInput.value = '';
+                sendChatBtn.disabled = true;
 
+                // Añadir el mensaje del usuario al historial
+                chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+
+                // Llamada a la API de Gemini
                 try {
-                    const prompt = `Actúa como un tutor experto en ciberseguridad para adolescentes. Analiza la siguiente respuesta a la pregunta: "${questions[currentQuestionIndex]}". La respuesta del usuario es: "${userResponse}". Proporciona una explicación detallada en español que incluya: 1) Una retroalimentación sobre la respuesta, 2) Información adicional para profundizar, y 3) Un consejo práctico para aplicar en la vida real. Responde de forma amigable y útil.`;
-                    
                     const payload = {
-                        contents: [{ parts: [{ text: prompt }] }],
+                        contents: chatHistory,
                     };
-
                     const response = await fetch(API_URL, {
                         method: 'POST',
                         headers: {
@@ -172,39 +239,43 @@
                     });
 
                     if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(`Error de la API: ${JSON.stringify(errorData)}`);
+                        throw new Error("Error en la respuesta de la API.");
                     }
 
                     const data = await response.json();
-                    
-                    if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
-                        const analysis = data.candidates[0].content.parts[0].text;
-                        resultContent.innerHTML = analysis.replace(/\n/g, '<br>');
-                        
-                        testScreen.classList.add('hidden');
-                        resultScreen.classList.remove('hidden');
-                        currentQuestionIndex++;
-                    } else {
-                        showMessage("No se pudo analizar la respuesta. Intenta de nuevo.", true);
-                    }
+                    const aiResponse = data.candidates[0].content.parts[0].text;
+                    addMessageToChat(aiResponse, 'ai');
+                    chatHistory.push({ role: "model", parts: [{ text: aiResponse }] });
 
                 } catch (error) {
-                    console.error("Error al analizar la respuesta:", error);
-                    showMessage("Ocurrió un error. Revisa la consola para más detalles.", true);
+                    console.error("Error al comunicarse con la IA:", error);
+                    addMessageToChat("Lo siento, no pude procesar tu solicitud. Por favor, intenta de nuevo.", 'ai');
                 } finally {
-                    loadingIndicator.classList.add('hidden');
-                    sendBtn.disabled = false;
+                    sendChatBtn.disabled = false;
                 }
             };
 
-            // Asignar eventos a los botones
-            startBtn.addEventListener('click', displayQuestion);
-            sendBtn.addEventListener('click', analyzeAnswer);
-            restartBtn.addEventListener('click', () => {
-                currentQuestionIndex = 0;
-                welcomeScreen.classList.remove('hidden');
-                resultScreen.classList.add('hidden');
+            // Eventos para los botones del menú
+            menuButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    showScreen(targetId);
+                });
+            });
+
+            // Eventos para los botones de volver
+            backButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    showScreen('main-menu-screen');
+                });
+            });
+
+            // Evento para enviar mensaje en el chat
+            sendChatBtn.addEventListener('click', sendUserMessage);
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    sendUserMessage();
+                }
             });
         });
     </script>

@@ -21,18 +21,27 @@
             border-radius: 1.5rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .btn {
-            background-color: #2563eb;
+        .btn-blue {
+            background-color: #1e3a8a; /* Color azul oscuro */
             color: white;
-            padding: 12px 24px;
-            border-radius: 9999px;
-            font-weight: 500;
+            padding: 16px 24px;
+            border-radius: 1.5rem;
+            font-weight: 700;
+            text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-blue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .section-title {
+            color: #1e3a8a;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
         }
         .loading {
             display: flex;
@@ -44,7 +53,7 @@
             width: 30px;
             height: 30px;
             border: 4px solid #d1d5db;
-            border-top-color: #2563eb;
+            border-top-color: #1e3a8a;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -65,145 +74,184 @@
             border-bottom-right-radius: 0;
         }
         .chat-ai {
-            background-color: #2563eb;
+            background-color: #1e3a8a;
             color: white;
             align-self: flex-start;
             border-bottom-left-radius: 0;
         }
-        /* Estilos para el efecto de sombra en los botones del menú */
-        .menu-btn {
-            background-color: #4f46e5;
-            color: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .menu-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
     </style>
 </head>
-<body class="p-4 md:p-8 min-h-screen flex items-center justify-center">
+<body class="p-4 md:p-8 min-h-screen flex flex-col items-center justify-center bg-[#f3f4f6]">
 
-    <div class="container mx-auto max-w-2xl">
+    <div class="container mx-auto max-w-4xl text-center">
 
-        <!-- Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">InNova</h1>
-            <p class="text-lg md:text-xl text-gray-600">Tu guía interactiva de seguridad digital</p>
-        </header>
+        <!-- Título principal -->
+        <h1 class="text-5xl font-extrabold mb-2 text-gray-900">InNova</h1>
+        <p class="text-lg text-gray-600 mb-8">"Desde la mirada de Jesús, transformamos realidades"</p>
 
-        <!-- Main content area -->
-        <main class="card p-8">
+        <!-- Contenedor principal de la aplicación -->
+        <main class="card p-8 md:p-12">
+            
+            <!-- Pantalla principal del menú -->
+            <div id="main-menu-screen">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Sección de Ciberseguridad -->
+                    <div class="lg:col-span-1 flex flex-col items-center">
+                        <h2 class="section-title">Ciberseguridad</h2>
+                        <button class="btn-blue w-full mb-4" data-target="concepto-ciberseguridad">
+                            <span class="block text-xl font-bold">Concepto de ciberseguridad</span>
+                        </button>
+                        <button class="btn-blue w-full" data-target="aplicar-ciberseguridad">
+                            <span class="block text-xl font-bold">Como aplicar la ciberseguridad</span>
+                        </button>
+                    </div>
 
-            <!-- Welcome/Menu Screen -->
-            <div id="main-menu-screen" class="text-center">
-                <p class="text-lg mb-6 text-gray-700">Explora los diferentes módulos y aprende a navegar por el mundo digital de forma segura.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                    <button class="menu-btn p-6" data-target="ciberacoso">
-                        <span class="block text-2xl font-bold">Ciberacoso</span>
-                        <p class="text-sm mt-2 opacity-80">Aprende a identificarlo y a protegerte.</p>
-                    </button>
-                    <button class="menu-btn p-6" data-target="phishing">
-                        <span class="block text-2xl font-bold">Phishing</span>
-                        <p class="text-sm mt-2 opacity-80">Evita ser víctima de estafas en línea.</p>
-                    </button>
-                    <button class="menu-btn p-6" data-target="contenido-inapropiado">
-                        <span class="block text-2xl font-bold">Contenido Inapropiado</span>
-                        <p class="text-sm mt-2 opacity-80">Reconoce y evita material ofensivo o peligroso.</p>
-                    </button>
-                    <button class="menu-btn p-6" data-target="chat-ia">
-                        <span class="block text-2xl font-bold">Chat con la IA</span>
-                        <p class="text-sm mt-2 opacity-80">Pregúntale a nuestra IA sobre cualquier tema de seguridad.</p>
-                    </button>
+                    <!-- Sección de Riesgos del Internet y redes sociales -->
+                    <div class="lg:col-span-2 flex flex-col items-center">
+                        <h2 class="section-title">Riesgos del Internet y redes sociales</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                            <button class="btn-blue h-full" data-target="ciberacoso">
+                                <span class="block text-xl font-bold">Ciberacoso</span>
+                                <p class="text-sm mt-1 opacity-80">Aprende a identificarlo</p>
+                            </button>
+                            <button class="btn-blue h-full" data-target="phishing">
+                                <span class="block text-xl font-bold">Phishing</span>
+                                <p class="text-sm mt-1 opacity-80">evita las estafas de internet</p>
+                            </button>
+                            <button class="btn-blue h-full" data-target="robo-identidad">
+                                <span class="block text-xl font-bold">Robo de identidad</span>
+                                <p class="text-sm mt-1 opacity-80">Evita que te roben tu información</p>
+                            </button>
+                            <div class="md:col-span-3 flex justify-center mt-4">
+                                <button class="btn-blue" data-target="chat-ia">
+                                    <span class="block text-xl font-bold">Chat con la IA</span>
+                                    <p class="text-sm mt-1 opacity-80">Consulta tus dudas con la IA de Gemini</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- Themed Content Screens -->
-            <div id="ciberacoso" class="hidden">
-                <h2 class="text-3xl font-bold mb-4">Ciberacoso</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    El ciberacoso es el uso de tecnologías digitales para acosar, intimidar, amenazar o humillar a otra persona. Esto puede incluir el envío de mensajes o correos electrónicos agresivos, la publicación de rumores en redes sociales, o la creación de perfiles falsos.
+            <!-- Contenido de las secciones -->
+            <div id="concepto-ciberseguridad" class="hidden">
+                <h2 class="text-3xl font-bold mb-4 text-[#1e3a8a]">Concepto de Ciberseguridad</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    La ciberseguridad es la práctica de defender computadoras, servidores, dispositivos móviles, sistemas electrónicos, redes y datos de ataques maliciosos. También se le conoce como seguridad de tecnología de la información (TI) o seguridad electrónica de la información. Su principal objetivo es proteger la información y los sistemas de información del acceso no autorizado, uso, divulgación, interrupción, modificación o destrucción.
                 </p>
-                <ul class="list-disc list-inside mt-4 text-gray-700">
-                    <li>Bloquea al acosador.</li>
-                    <li>Guarda las pruebas (capturas de pantalla, mensajes).</li>
-                    <li>Habla con un adulto de confianza o un docente.</li>
-                </ul>
-                <button class="back-btn btn mt-8">Volver</button>
+                <button class="back-btn btn-blue mt-8">Volver al Menú</button>
             </div>
-
+            
+            <div id="aplicar-ciberseguridad" class="hidden">
+                <h2 class="text-3xl font-bold mb-4 text-[#1e3a8a]">Cómo Aplicar la Ciberseguridad</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Aplicar la ciberseguridad en nuestra vida diaria es fundamental para protegernos de las amenazas en línea. A continuación, te mostramos algunas prácticas clave que puedes adoptar:
+                </p>
+                <ul class="list-disc list-inside text-left text-gray-700 space-y-2 mb-4">
+                    <li>**Usa contraseñas fuertes:** Combina letras mayúsculas y minúsculas, números y símbolos. No uses la misma contraseña para varias cuentas.</li>
+                    <li>**Activa la autenticación de dos factores (2FA):** Esto añade una capa extra de seguridad, pidiendo un segundo código (enviado a tu teléfono) además de tu contraseña.</li>
+                    <li>**Actualiza tu software:** Mantén tu sistema operativo, aplicaciones y antivirus siempre actualizados para corregir vulnerabilidades de seguridad.</li>
+                    <li>**Sé cauteloso con los enlaces y archivos adjuntos:** No hagas clic en enlaces ni descargues archivos de fuentes desconocidas o sospechosas.</li>
+                    <li>**Usa una red privada virtual (VPN):** Una VPN cifra tu conexión a Internet, protegiendo tus datos, especialmente cuando usas redes Wi-Fi públicas.</li>
+                </ul>
+                <button class="back-btn btn-blue mt-8">Volver al Menú</button>
+            </div>
+            
+            <div id="ciberacoso" class="hidden">
+                <h2 class="text-3xl font-bold mb-4 text-[#1e3a8a]">Ciberacoso</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    El ciberacoso es el uso de tecnologías digitales para acosar, intimidar, amenazar o humillar a otra persona. Puede ocurrir en redes sociales, plataformas de mensajería y foros.
+                </p>
+                <h3 class="text-xl font-bold text-[#1e3a8a]">Qué es</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Incluye el envío de mensajes agresivos, la publicación de rumores, la suplantación de identidad para dañar a alguien, y el envío de contenido humillante.
+                </p>
+                <h3 class="text-xl font-bold text-[#1e3a8a]">Cómo identificarlo</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Presta atención a mensajes repetitivos, amenazas, contenido que busca humillarte o excluye a una persona de grupos en línea.
+                </p>
+                <h3 class="text-xl font-bold text-[#1e3a8a]">Qué hacer si eres víctima</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Guarda las pruebas (capturas de pantalla), bloquea al acosador, y habla con un adulto de confianza. Denuncia el perfil o la cuenta a la plataforma.
+                </p>
+                <button class="back-btn btn-blue mt-8">Volver al Menú</button>
+            </div>
+            
             <div id="phishing" class="hidden">
-                <h2 class="text-3xl font-bold mb-4">Phishing</h2>
-                <p class="text-gray-700 leading-relaxed">
+                <h2 class="text-3xl font-bold mb-4 text-[#1e3a8a]">Phishing</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
                     El phishing es una técnica de estafa digital que busca engañarte para que reveles información personal, como contraseñas o datos bancarios. Generalmente, se hace a través de correos electrónicos, mensajes de texto o sitios web que parecen ser legítimos.
                 </p>
-                <ul class="list-disc list-inside mt-4 text-gray-700">
-                    <li>Revisa la dirección de correo del remitente.</li>
-                    <li>Desconfía de enlaces o archivos adjuntos sospechosos.</li>
-                    <li>Nunca compartas información sensible.</li>
+                <ul class="list-disc list-inside mt-4 text-left text-gray-700 space-y-2">
+                    <li>**Revisa la dirección del remitente:** A menudo son direcciones extrañas o con errores.</li>
+                    <li>**Desconfía de la urgencia:** Los mensajes de phishing suelen crear un sentido de pánico para que actúes sin pensar.</li>
+                    <li>**No hagas clic en enlaces sospechosos:** Pasa el cursor sobre el enlace para ver la URL real antes de hacer clic.</li>
+                    <li>**Verifica la gramática y ortografía:** Los mensajes fraudulentos suelen tener errores que las empresas legítimas no cometerían.</li>
                 </ul>
-                <button class="back-btn btn mt-8">Volver</button>
+                <button class="back-btn btn-blue mt-8">Volver al Menú</button>
             </div>
 
-            <div id="contenido-inapropiado" class="hidden">
-                <h2 class="text-3xl font-bold mb-4">Contenido Inapropiado</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    El contenido inapropiado se refiere a cualquier material en línea que es ofensivo, dañino o no adecuado para todos los públicos. Esto puede incluir violencia, discriminación, lenguaje de odio o material sexual.
+            <div id="robo-identidad" class="hidden">
+                <h2 class="text-3xl font-bold mb-4 text-[#1e3a8a]">Robo de Identidad</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    El robo de identidad ocurre cuando alguien roba tu información personal (como tu nombre, número de documento, o datos bancarios) para cometer fraude o crimen. Esto puede causar grandes problemas financieros y legales.
                 </p>
-                <ul class="list-disc list-inside mt-4 text-gray-700">
-                    <li>No lo compartas ni lo distribuyas.</li>
-                    <li>Bloquea al usuario que lo compartió.</li>
-                    <li>Repórtalo a la plataforma o a un adulto.</li>
+                <ul class="list-disc list-inside mt-4 text-left text-gray-700 space-y-2">
+                    <li>**Protege tu información personal:** Sé muy cuidadoso con la información que compartes en redes sociales.</li>
+                    <li>**Usa contraseñas únicas:** No uses la misma contraseña en todas tus cuentas.</li>
+                    <li>**Monitorea tus cuentas:** Revisa regularmente tus estados de cuenta bancarios y de crédito para detectar actividad sospechosa.</li>
                 </ul>
-                <button class="back-btn btn mt-8">Volver</button>
+                <button class="back-btn btn-blue mt-8">Volver al Menú</button>
             </div>
 
-            <!-- AI Chat Screen -->
+            <!-- Pantalla del Chat con la IA -->
             <div id="chat-ia" class="hidden">
-                <h2 class="text-3xl font-bold mb-4">Chat con la IA</h2>
+                <h2 class="text-3xl font-bold mb-4 text-[#1e3a8a]">Chat con la IA</h2>
                 <div id="chat-container" class="bg-gray-100 p-4 rounded-xl h-96 overflow-y-auto flex flex-col mb-4">
                     <div class="chat-bubble chat-ai">Hola, soy la IA de InNova. ¿En qué tema de seguridad digital puedo ayudarte hoy?</div>
                 </div>
                 <div class="flex items-center">
-                    <input type="text" id="chat-input" class="flex-grow p-3 rounded-l-xl border-t border-b border-l border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Escribe tu pregunta...">
-                    <button id="send-chat-btn" class="btn rounded-l-none">Enviar</button>
+                    <input type="text" id="chat-input" class="flex-grow p-3 rounded-l-xl border-t border-b border-l border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1e3a8a]" placeholder="Escribe tu pregunta...">
+                    <button id="send-chat-btn" class="btn-blue rounded-l-none">Enviar</button>
                 </div>
+                <button class="back-btn btn-blue mt-8">Volver al Menú</button>
             </div>
-
+            
         </main>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const API_KEY = "AIzaSyBOy6ZIMToC6OewYmoDBnDIWqY3MPBHSjU"; 
+            const API_KEY = "AIzaSyBOy6ZIMToC6OewYmoDBnDIWqY3MPBHSjU";
             const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
             
-            // Referencias a las pantallas
-            const mainMenuScreen = document.getElementById('main-menu-screen');
-            const ciberacosoScreen = document.getElementById('ciberacoso');
-            const phishingScreen = document.getElementById('phishing');
-            const contenidoInapropiadoScreen = document.getElementById('contenido-inapropiado');
-            const chatIaScreen = document.getElementById('chat-ia');
-            
-            // Referencias a los botones
-            const menuButtons = document.querySelectorAll('.menu-btn');
+            // Mapeo de IDs de pantalla
+            const screens = {
+                'main-menu-screen': document.getElementById('main-menu-screen'),
+                'concepto-ciberseguridad': document.getElementById('concepto-ciberseguridad'),
+                'aplicar-ciberseguridad': document.getElementById('aplicar-ciberseguridad'),
+                'ciberacoso': document.getElementById('ciberacoso'),
+                'phishing': document.getElementById('phishing'),
+                'robo-identidad': document.getElementById('robo-identidad'),
+                'chat-ia': document.getElementById('chat-ia'),
+            };
+
+            const menuButtons = document.querySelectorAll('[data-target]');
             const backButtons = document.querySelectorAll('.back-btn');
             const sendChatBtn = document.getElementById('send-chat-btn');
             const chatInput = document.getElementById('chat-input');
             const chatContainer = document.getElementById('chat-container');
 
-            // Historial del chat para el modelo de IA
             let chatHistory = [
-                { role: "user", parts: [{ text: "Actúa como un tutor experto y amigable en ciberseguridad para estudiantes. No respondas preguntas fuera de este tema." }] },
-                { role: "model", parts: [{ text: "¡Hola! Estoy listo para responder tus preguntas sobre seguridad digital." }] }
+                { role: "user", parts: [{ text: "Actúa como un tutor experto y amigable en ciberseguridad para estudiantes. Responde de forma clara y concisa y no respondas preguntas fuera de este tema. Limita tus respuestas a 2-3 oraciones." }] },
+                { role: "model", parts: [{ text: "¡Hola! Soy la IA de InNova y estoy lista para responder tus preguntas sobre seguridad digital." }] }
             ];
 
             const showScreen = (screenId) => {
-                const screens = [mainMenuScreen, ciberacosoScreen, phishingScreen, contenidoInapropiadoScreen, chatIaScreen];
-                screens.forEach(screen => screen.classList.add('hidden'));
-                document.getElementById(screenId).classList.remove('hidden');
+                Object.values(screens).forEach(screen => screen.classList.add('hidden'));
+                screens[screenId].classList.remove('hidden');
             };
 
             const addMessageToChat = (message, sender) => {
@@ -211,7 +259,7 @@
                 messageBubble.textContent = message;
                 messageBubble.className = `chat-bubble ${sender === 'user' ? 'chat-user' : 'chat-ai'}`;
                 chatContainer.appendChild(messageBubble);
-                chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to bottom
+                chatContainer.scrollTop = chatContainer.scrollHeight;
             };
 
             const sendUserMessage = async () => {
@@ -281,3 +329,4 @@
     </script>
 </body>
 </html>
+
